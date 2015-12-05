@@ -7,7 +7,7 @@ void swap(int& x, int& y) {
 	x = x ^ y;
 }
 
-std::string rc4Crypt(std::string input, std::string key) {
+char* rc4Crypt(std::string input, std::string key) {
 	char* result = new char[input.size()]; //used as a stringbuilder
 	int x, j = 0;
 	int keystream[256];
@@ -28,8 +28,10 @@ std::string rc4Crypt(std::string input, std::string key) {
 }
 
 int main() {
-	std::string cypheredText = rc4Crypt("AuthentichatKey", "T0uC(@#N");
+	char* cypheredText = rc4Crypt("AuthentichatKey", "T0uC(@#N");
 	std::cout << cypheredText << std::endl;
-	std::string deCypheredText = rc4Crypt(cypheredText, "T0uC(@#N");
+	char* deCypheredText = rc4Crypt(cypheredText, "T0uC(@#N");
 	std::cout << deCypheredText << std::endl;
+	delete cypheredText;
+	delete deCypheredText;
 }
